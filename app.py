@@ -7,7 +7,7 @@ CSV_FILE = "feedback.csv"
 
 # Initialize CSV with headers
 if not os.path.exists(CSV_FILE):
-    with open(CSV_FILE, mode="w", newline='', encoding='utf-8') as f:
+    with open(CSV_FILE, mode="w", newline='', encoding='utf-8-sig') as f:
         writer = csv.writer(f)
         writer.writerow([
             "Name", "College", "Address",
@@ -34,7 +34,7 @@ def feedback_form():
             request.form.get("issues"),
             request.form.get("suggestions")
         ]
-        with open(CSV_FILE, mode="a", newline='', encoding='utf-8') as f:
+        with open(CSV_FILE, mode="a", newline='', encoding='utf-8-sig') as f:
             writer = csv.writer(f)
             writer.writerow(data)
         return redirect(url_for("thank_you"))
