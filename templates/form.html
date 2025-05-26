@@ -3,39 +3,33 @@
 {% block content %}
 <div class="form-container">
   <form method="POST">
-    <!-- Personal Info -->
     <div class="mb-3">
-      <label class="form-label">नाम / Name</label>
+      <label>नाम / Name</label>
       <input type="text" name="name" class="form-control" required>
     </div>
-
     <div class="mb-3">
-      <label class="form-label">कॉलेज का नाम / College Name</label>
+      <label>कॉलेज का नाम / College Name</label>
       <input type="text" name="college" class="form-control" required>
     </div>
-
     <div class="mb-3">
-      <label class="form-label">पता / Address</label>
-      <textarea name="address" class="form-control" rows="2" required></textarea>
+      <label>पता / Address</label>
+      <input type="text" name="address" class="form-control" required>
     </div>
 
-    <!-- Section 1 -->
     <h5 class="mt-4">अनुभाग 1: समग्र अनुभव / Section 1: Overall Experience</h5>
-
     <div class="mb-3">
-      <label class="form-label">1. आप इस कोर्स के साथ अपने समग्र अनुभव को कैसे मूल्यांकित करेंगे? / How would you rate your overall experience with this course?</label>
-      <select name="overall_experience" class="form-select" required>
+      <label>आप इस कोर्स के साथ अपने समग्र अनुभव को कैसे मूल्यांकित करेंगे? / How would you rate your overall experience with the course?</label>
+      <select name="experience" class="form-select" required>
         <option value="Excellent">उत्कृष्ट / Excellent</option>
         <option value="Good">अच्छा / Good</option>
         <option value="Average">मध्यम / Average</option>
         <option value="Poor">खराब / Poor</option>
       </select>
     </div>
-
     <div class="mb-3">
-      <label class="form-label">2. क्या आप इस कोर्स की सिफारिश दूसरों को करेंगे? / Would you recommend this course to others?</label>
-      <select name="recommend_course" class="form-select" required>
-        <option value="Very Likely">बहुत संभावना है / Very Likely</option>
+      <label>क्या आप इस कोर्स की सिफारिश दूसरों को करेंगे? / Would you recommend this course to others?</label>
+      <select name="recommendation" class="form-select" required>
+        <option value="Very likely">बहुत संभावना है / Very Likely</option>
         <option value="Likely">संभावना है / Likely</option>
         <option value="Neutral">तटस्थ / Neutral</option>
         <option value="Unlikely">असंभव / Unlikely</option>
@@ -43,79 +37,70 @@
       </select>
     </div>
 
-    <!-- Section 2 -->
     <h5 class="mt-4">अनुभाग 2: कोर्स सामग्री / Course Content</h5>
-
     <div class="mb-3">
-      <label class="form-label">1. कोर्स सामग्री आपकी आवश्यकताओं के लिए कितनी प्रासंगिक थी? / How relevant was the course content to your needs?</label>
-      <select name="content_relevance" class="form-select" required>
-        <option value="Very Relevant">बहुत प्रासंगिक / Very Relevant</option>
-        <option value="Somewhat Relevant">कुछ हद तक प्रासंगिक / Somewhat Relevant</option>
-        <option value="Less Relevant">बहुत कम प्रासंगिक / Less Relevant</option>
-        <option value="Not Relevant">बिल्कुल प्रासंगिक नहीं / Not Relevant</option>
+      <label>कोर्स सामग्री आपकी आवश्यकताओं के लिए कितनी प्रासंगिक थी? / How relevant was the course content?</label>
+      <select name="relevance" class="form-select" required>
+        <option value="Highly relevant">बहुत प्रासंगिक / Highly Relevant</option>
+        <option value="Somewhat relevant">कुछ हद तक प्रासंगिक / Somewhat Relevant</option>
+        <option value="Barely relevant">बहुत कम प्रासंगिक / Barely Relevant</option>
+        <option value="Not relevant">बिल्कुल प्रासंगिक नहीं / Not Relevant</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>कोर्स सामग्री की गहराई और विस्तार को आप कैसे मूल्यांकित करेंगे? / Rate the depth and detail of the course material.</label>
+      <select name="depth" class="form-select" required>
+        <option value="Just right">बिल्कुल सही / Just Right</option>
+        <option value="Too little">बहुत कम / Too Little</option>
+        <option value="Too much">बहुत अधिक / Too Much</option>
       </select>
     </div>
 
+    <h5 class="mt-4">अनुभाग 3: प्रशिक्षक और समर्थन / Instructor and Support</h5>
     <div class="mb-3">
-      <label class="form-label">2. कोर्स सामग्री की गहराई और विस्तार को आप कैसे मूल्यांकित करेंगे? / How would you rate the depth and coverage of the course content?</label>
-      <select name="content_depth" class="form-select" required>
-        <option value="Just Right">बिल्कुल सही / Just Right</option>
-        <option value="Too Little">बहुत कम / Too Little</option>
-        <option value="Too Much">बहुत अधिक / Too Much</option>
-      </select>
-    </div>
-
-    <!-- Section 3 -->
-    <h5 class="mt-4">अनुभाग 3: प्रशिक्षक और समर्थन / Instructor & Support</h5>
-
-    <div class="mb-3">
-      <label class="form-label">1. प्रशिक्षक की शिक्षण शैली को आप कैसे मूल्यांकित करेंगे? / How would you rate the instructor’s teaching style?</label>
-      <select name="instructor_style" class="form-select" required>
+      <label>प्रशिक्षक की शिक्षण शैली को आप कैसे मूल्यांकित करेंगे? / How would you rate the instructor’s teaching style?</label>
+      <select name="style" class="form-select" required>
         <option value="Excellent">उत्कृष्ट / Excellent</option>
         <option value="Good">अच्छा / Good</option>
         <option value="Average">मध्यम / Average</option>
         <option value="Poor">खराब / Poor</option>
       </select>
     </div>
-
     <div class="mb-3">
-      <label class="form-label">2. प्रशिक्षक आपके प्रश्नों और चिंताओं के प्रति कितने उत्तरदायी थे? / How responsive was the instructor to your questions and concerns?</label>
-      <select name="instructor_responsiveness" class="form-select" required>
-        <option value="Very Responsive">बहुत उत्तरदायी / Very Responsive</option>
-        <option value="Somewhat Responsive">कुछ हद तक उत्तरदायी / Somewhat Responsive</option>
-        <option value="Less Responsive">बहुत कम उत्तरदायी / Less Responsive</option>
-        <option value="Not Responsive">बिल्कुल उत्तरदायी नहीं / Not Responsive</option>
+      <label>प्रशिक्षक आपके प्रश्नों के प्रति कितने उत्तरदायी थे? / Instructor’s responsiveness to your questions?</label>
+      <select name="responsiveness" class="form-select" required>
+        <option value="Very responsive">बहुत उत्तरदायी / Very Responsive</option>
+        <option value="Somewhat responsive">कुछ हद तक उत्तरदायी / Somewhat Responsive</option>
+        <option value="Barely responsive">बहुत कम उत्तरदायी / Barely Responsive</option>
+        <option value="Not responsive">बिल्कुल उत्तरदायी नहीं / Not Responsive</option>
       </select>
     </div>
 
-    <!-- Section 4 -->
     <h5 class="mt-4">अनुभाग 4: तकनीकी पहलू / Technical Aspects</h5>
-
     <div class="mb-3">
-      <label class="form-label">1. कोर्स की तकनीकी गुणवत्ता (ऑडियो, वीडियो, आदि) को आप कैसे मूल्यांकित करेंगे? / How would you rate the technical quality of the course?</label>
-      <select name="technical_quality" class="form-select" required>
+      <label>कोर्स की तकनीकी गुणवत्ता को आप कैसे मूल्यांकित करेंगे? / How would you rate the technical quality (audio/video)?</label>
+      <select name="quality" class="form-select" required>
         <option value="Excellent">उत्कृष्ट / Excellent</option>
         <option value="Good">अच्छा / Good</option>
         <option value="Average">मध्यम / Average</option>
         <option value="Poor">खराब / Poor</option>
       </select>
     </div>
-
     <div class="mb-3">
-      <label class="form-label">2. क्या कोई तकनीकी समस्याएं थीं जिन्होंने आपके सीखने के अनुभव को प्रभावित किया? / Were there any technical issues that impacted your learning experience?</label>
-      <select name="technical_issues" class="form-select" required>
+      <label>क्या तकनीकी समस्याएं थीं? / Any technical issues that impacted learning?</label>
+      <select name="issues" class="form-select" required>
         <option value="Yes">हाँ / Yes</option>
         <option value="No">नहीं / No</option>
       </select>
     </div>
 
-    <!-- Section 5 -->
+    <h5 class="mt-4">अनुभाग 5: अतिरिक्त टिप्पणियाँ / Additional Comments</h5>
     <div class="mb-3">
-      <label class="form-label">अन्य सुझाव / Additional Comments</label>
-      <textarea name="additional_comments" class="form-control" rows="3"></textarea>
+      <label>क्या आपके पास इस कोर्स के बारे में कोई अन्य सुझाव हैं? / Any other thoughts or suggestions?</label>
+      <textarea name="suggestions" class="form-control" rows="3"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">सबमिट करें / Submit</button>
+    <button type="submit" class="btn btn-primary mt-3">सबमिट करें / Submit</button>
   </form>
 </div>
 {% endblock %}
