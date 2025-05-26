@@ -3,63 +3,41 @@ import csv
 import os
 
 app = Flask(__name__)
-
 CSV_FILE = "feedback.csv"
 
-# Create CSV with headers if it doesn't exist
+# Initialize CSV with headers
 if not os.path.exists(CSV_FILE):
     with open(CSV_FILE, mode="w", newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow([
-            "Name",
-            "College Name",
-            "Address",
-            "Overall Experience",
-            "Recommend Course",
-            "Content Relevance",
-            "Content Depth",
-            "Instructor Style",
-            "Instructor Responsiveness",
-            "Technical Quality",
-            "Technical Issues",
-            "Additional Comments"
+            "Name", "College", "Address",
+            "Overall Experience", "Recommendation",
+            "Content Relevance", "Content Depth",
+            "Instructor Style", "Instructor Responsiveness",
+            "Tech Quality", "Tech Issues", "Suggestions"
         ])
 
 @app.route("/", methods=["GET", "POST"])
 def feedback_form():
     if request.method == "POST":
-        name = request.form["name"]
-        college = request.form["college"]
-        address = request.form["address"]
-        overall_experience = request.form["overall_experience"]
-        recommend_course = request.form["recommend_course"]
-        content_relevance = request.form["content_relevance"]
-        content_depth = request.form["content_depth"]
-        instructor_style = request.form["instructor_style"]
-        instructor_responsiveness = request.form["instructor_responsiveness"]
-        technical_quality = request.form["technical_quality"]
-        technical_issues = request.form["technical_issues"]
-        additional_comments = request.form["additional_comments"]
-
+        data = [
+            request.form.get("name"),
+            request.form.get("college"),
+            request.form.get("address"),
+            request.form.get("experience"),
+            request.form.get("recommendation"),
+            request.form.get("relevance"),
+            request.form.get("depth"),
+            request.form.get("style"),
+            request.form.get("responsiveness"),
+            request.form.get("quality"),
+            request.form.get("issues"),
+            request.form.get("suggestions")
+        ]
         with open(CSV_FILE, mode="a", newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow([
-                name,
-                college,
-                address,
-                overall_experience,
-                recommend_course,
-                content_relevance,
-                content_depth,
-                instructor_style,
-                instructor_responsiveness,
-                technical_quality,
-                technical_issues,
-                additional_comments
-            ])
-
+            writer.writerow(data)
         return redirect(url_for("thank_you"))
-
     return render_template("form.html")
 
 @app.route("/thank-you")
