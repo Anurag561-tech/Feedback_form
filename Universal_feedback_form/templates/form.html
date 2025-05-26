@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label">नाम / Name</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">ईमेल / Email</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">प्रतिक्रिया / Feedback</label>
+      <textarea name="feedback" class="form-control" rows="4" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">रेटिंग / Rating (1 - 5)</label>
+      <select name="rating" class="form-select" required>
+        <option value="">चुनें / Select</option>
+        {% for i in range(1, 6) %}
+        <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">सुझाव / Suggestions for Improvement</label>
+      <textarea name="improvement" class="form-control" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">सबमिट करें / Submit</button>
+  </form>
+</div>
+{% endblock %}
