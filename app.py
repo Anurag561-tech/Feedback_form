@@ -31,7 +31,7 @@ def feedback_form():
 
 @app.route("/thank-you")
 def thank_you():
-    return render_template("thankyou.html")
+    return render_template("Thankyou.html")
 
 @app.route("/download-feedback")
 def download_feedback():
